@@ -25,3 +25,12 @@
 | paginas/reservas.html  | index.html             | ../index.html                    |
 | paginas/reservas.html  | paginas/tarifas.html   | tarifas.html                     |
 | paginas/reservas.html  | paginas/reservas.html  | reservas.html                    |
+8. DISEÑO DE REGIONES Y SEMÁNTICA (v0.2):
+
+- Esquema de regiones por página:
+  * index.html: <header> (Logo, H1, Nav), <main> (Secciones temáticas y Artículos de servicios), <footer> (Pie de página).
+  * paginas/tarifas.html: <header> (Logo, Nav), <main> (Secciones de tablas, notas de cliente) + <aside> (Contenido complementario: qué llevar), <footer>.
+  * paginas/reservas.html: <header> (Logo, Nav), <main> (Sección de reservas) + <aside> (Horario de atención detallado en lista de definiciones), <footer>.
+
+- Uso de div y span:
+  * Se eliminaron todos los contenedores genéricos innecesarios, reemplazándolos por etiquetas nativas semánticas (<header>, <main>, <section>, <article>, <aside>, <footer>). No se requirió mantener ningún div estructural genérico ya que la jerarquía semántica cubre el 100% del layout actual.
