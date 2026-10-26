@@ -34,3 +34,40 @@
 
 - Uso de div y span:
   * Se eliminaron todos los contenedores genéricos innecesarios, reemplazándolos por etiquetas nativas semánticas (<header>, <main>, <section>, <article>, <aside>, <footer>). No se requirió mantener ningún div estructural genérico ya que la jerarquía semántica cubre el 100% del layout actual.
+
+  9. JUSTIFICACIÓN DE CONTROLES DEL FORMULARIO DE RESERVA:
+
+- Correo electrónico (<input type="email">):
+  * Justificación: Se eligió este tipo de campo porque incorpora validación nativa del navegador, asegurando que el texto ingresado cumpla con la estructura estándar de una dirección de correo electrónico (presencia de "@" y dominio), reduciendo errores de captura.
+
+- Fecha de reserva (<input type="date">):
+  * Justificación: Facilita la experiencia de usuario (UX) al desplegar un calendario gráfico interactivo nativo, evitando que el usuario deba digitar manualmente la fecha con un formato específico y previniendo entradas inválidas.
+
+- Tipo de bicicleta (<input type="radio">):
+  * Justificación: Es la opción más adecuada ya que las alternativas son mutuamente excluyentes (el usuario solo puede elegir una bicicleta a la vez). Al compartir el mismo atributo 'name', el navegador restringe la selección a una sola opción de manera visual y lógica.
+
+  10. TABLA DE PRUEBAS DE VALIDACIÓN DE FORMULARIO (RESERVAS):
+
+| Campo | Dato de prueba | Resultado esperado | Resultado obtenido |
+| :--- | :--- | :--- | :--- |
+| Nombre completo | "Al" | Bloquea envío (mínimo 3 caracteres) | Bloqueado correctamente por minlength |
+| Documento | "12345" | Bloquea envío (menos de 6 dígitos) | Bloqueado por patrón [0-9]{6,10} |
+| Documento | "12345a67" | Bloquea envío (contiene letras) | Bloqueado por restricción numérica de patrón |
+| Correo electrónico | "correo-sin-arroba" | Bloquea envío (formato inválido) | Bloqueado por control tipo email nativo |
+| Celular | "1234567890" | Bloquea envío (no empieza por 3) | Bloqueado por patrón 3[0-9]{9} |
+| Celular | "300123" | Bloquea envío (menos de 10 dígitos) | Bloqueado por patrón exacto de 10 dígitos |
+| Fecha del alquiler | "2026-10-15" | Bloquea envío (fuera del rango permitido) | Bloqueado por restricciones min/max de fecha |
+| Cantidad de bicis | "7" | Bloquea envío (máximo permitido es 6) | Bloqueado por atributo max=6 |
+
+11. AUDITORÍA DE ACCESIBILIDAD Y CORRECCIONES (v0.2):
+
+- Hallazgo 1 (Imágenes): En algunas páginas había imágenes con atributos 'alt' genéricos ("imagen", "foto").
+  * Corrección: Se actualizaron para ser estrictamente descriptivos según el contexto (ej. alt="Logo de Rueda Libre Medellín" y alt="Bicicleta urbana equipada con casco").
+- Hallazgo 2 (Enlaces fuera de contexto): Había enlaces con textos ambiguos como "Ver más" o "Clic aquí".
+  * Corrección: Se reescribieron los textos de enlace para que tengan sentido por sí mismos (ej. "Ver tabla completa de recorridos guiados y precios").
+- Hallazgo 3 (Jerarquía de encabezados): Riesgo de salto de nivel de título en secciones secundarias.
+  * Corrección: Se aseguró una estructura estrictamente descendente (un único <h1>, seguido de <h2> para secciones y <h3> para subsecciones/artículos).
+- Hallazgo 4 (Idioma del documento): La etiqueta raíz carecía de especificación de idioma o presentaba ambigüedades.
+  * Corrección: Se verificó e impuso uniformemente la propiedad <html lang="es"> en las tres páginas del sitio.
+- Hallazgo 5 (Navegación por teclado y foco): Algunos elementos interactivos y campos de formulario no garantizaban un orden lógico de tabulación secuencial.
+  * Corrección: Se reorganizó la secuencia de elementos en el DOM para permitir una navegación fluida mediante la tecla Tab y Shift + Tab sin saltos extraños.
