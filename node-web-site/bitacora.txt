@@ -1,0 +1,27 @@
+6. ROLES DE LAS TECNOLOGÍAS WEB EN EL PROYECTO (HTML, CSS Y JAVASCRIPT):
+
+- HTML (HyperText Markup Language):
+  * Rol: Es el esqueleto y la estructura semántica de la página web. Define los elementos principales como encabezados, párrafos, tablas de tarifas e imágenes.
+  * Ejemplo concreto: La etiqueta <table> con sus <thead>, <tbody> y <th scope="col"> utilizada para estructurar de manera accesible la lista de precios de alquiler en "tarifas.html".
+
+- CSS (Cascading Style Sheets):
+  * Rol: Es la capa de diseño visual y presentación. Se encarga de dar estilo, colores, tipografías, distribución (layouts) y adaptabilidad (diseño responsivo) para que el sitio luzca profesional.
+  * Ejemplo concreto: Aplicar una regla de color corporativo verde oscuro (#1b4d3e) al fondo de la barra de navegación y configurar las tarjetas de los tours para que se adapten a pantallas de celulares y computadoras.
+
+- JavaScript:
+  * Rol: Es el motor de interactividad y comportamiento dinámico del sitio. Permite reaccionar a las acciones del usuario en tiempo real sin necesidad de recargar la página completa.
+  * Ejemplo concreto: Un script que calcule automáticamente el costo total de un alquiler de bicicletas al seleccionar la cantidad de horas en un formulario interactivo y muestre el precio en tiempo real.
+
+  7. TABLA DE RUTAS RELATIVAS (NAVEGACIÓN DEL SITIO v0.1):
+
+| Archivo de Origen      | Destino enlazado       | Ruta escrita en el HTML         |
+|------------------------|------------------------|----------------------------------|
+| index.html             | index.html             | index.html                       |
+| index.html             | paginas/tarifas.html   | paginas/tarifas.html             |
+| index.html             | paginas/reservas.html  | paginas/reservas.html            |
+| paginas/tarifas.html   | index.html             | ../index.html                    |
+| paginas/tarifas.html   | paginas/tarifas.html   | tarifas.html                     |
+| paginas/tarifas.html   | paginas/reservas.html  | reservas.html                    |
+| paginas/reservas.html  | index.html             | ../index.html                    |
+| paginas/reservas.html  | paginas/tarifas.html   | tarifas.html                     |
+| paginas/reservas.html  | paginas/reservas.html  | reservas.html                    |
