@@ -71,3 +71,17 @@
   * Corrección: Se verificó e impuso uniformemente la propiedad <html lang="es"> en las tres páginas del sitio.
 - Hallazgo 5 (Navegación por teclado y foco): Algunos elementos interactivos y campos de formulario no garantizaban un orden lógico de tabulación secuencial.
   * Corrección: Se reorganizó la secuencia de elementos en el DOM para permitir una navegación fluida mediante la tecla Tab y Shift + Tab sin saltos extraños.
+
+  12. COMPROBACIÓN DE HERENCIA EN DEVTOOLS (CSS):
+- Propiedad que SÍ se hereda:
+  * Propiedad: color (o font-family)
+  * Comprobación en Computed: En los párrafos (<p>), la pestaña Computed muestra que la propiedad 'color' (con valor var(--gris-asfalto)) es heredada directamente desde el elemento padre <body>, sin necesidad de declararla explícitamente en cada etiqueta de texto.
+- Propiedad que NO se hereda:
+  * Propiedad: background-color (o border, padding, margin)
+  * Comprobación en Computed: La propiedad 'background-color' de las secciones (<section>) no se hereda del elemento <body>; por defecto su valor heredado es 'transparent' y requiere una declaración propia o explícita para mostrar el fondo blanco.
+
+  13. ANÁLISIS DE ESPECIFICIDAD Y CONFLICTO DE LA CLASE .activo:
+- Selector del compañero: #menu a (Especificidad ID + Elemento: 0, 1, 1)
+- Selector de la clase: .activo (Especificidad Clase: 0, 1, 0)
+- Causa del problema: En la cascada de CSS, el selector #menu a posee mayor especificidad (cuenta con un ID = 100) en comparación con el selector de clase .activo (cuenta con una clase = 10). Debido a esto, las reglas de color definidas en #menu a sobrescribían y anulaban el color de la clase .activo, tachándola en DevTools.
+- Solución aplicada: Se incrementó la especificidad del selector de clase combinándolo con el elemento (ej. a.activo o #menu a.activo con especificidad 0, 1, 1 o 0, 2, 1), logrando que coexista con el menú sin usar !important ni estilos en línea.

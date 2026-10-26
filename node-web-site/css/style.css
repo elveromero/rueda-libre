@@ -1,0 +1,73 @@
+/* --- NAVEGACIÓN Y MENÚ (Resolución de Especificidad) --- */
+
+/* Selector descendiente básico para los enlaces del menú */
+#menu a {
+    font-family: var(--fuente-titulos);
+    color: var(--crema);
+    text-decoration: none;
+    font-weight: 700;
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estados :hover y :focus claramente distinguibles */
+#menu a:hover {
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+}
+
+#menu a:focus {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    outline: 3px solid var(--azul-noche);
+    outline-offset: 2px;
+}
+
+/* Solución al conflicto de especificidad combinando el ID con la clase (.activo) */
+#menu a.activo {
+    color: var(--naranja-pedal);
+    font-weight: 700;
+    border-bottom: 2px solid var(--naranja-pedal);
+}
+
+
+/* --- BOTÓN DE LLAMADA A LA ACCIÓN ("Reservar ahora") --- */
+
+.btn-accion {
+    display: inline-block;
+    background-color: var(--verde-ruta);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-accion:hover {
+    background-color: #155d3c; /* Tono más oscuro de Verde Ruta */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-accion:focus {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+    outline: 3px solid var(--azul-noche);
+    outline-offset: 2px;
+}
+
+
+/* --- ESTADOS DE FOCO VISIBLES PARA CAMPOS DE FORMULARIO --- */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--verde-ruta);
+    box-shadow: 0 0 0 3px rgba(30, 122, 79, 0.3); /* Indicador de foco accesible y moderno */
+    background-color: #ffffff;
+}
