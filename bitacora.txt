@@ -102,3 +102,15 @@
 
 - Justificación sobre el uso de <div> y <span>:
   * Durante esta reestructuración se eliminaron todos los contenedores genéricos (<div> y <span>) que carecían de significado semántico, reemplazándolos en su totalidad por etiquetas nativas (<header>, <nav>, <main>, <section>, <article>, <aside>, <footer>). No fue necesario conservar ningún <div> ya que la jerarquía semántica cubre de forma precisa y robusta toda la arquitectura del sitio.
+
+
+  15. JUSTIFICACIÓN DE ELECCIÓN DE CONTROLS EN EL FORMULARIO (RESERVAS):
+
+- Tipo de bicicleta (<input type="radio">):
+  * Justificación: Se eligieron botones de opción (radio) porque las categorías son mutuamente excluyentes (el usuario solo puede escoger un tipo de bicicleta: urbana, montaña o eléctrica). Al compartir el atributo 'name="tipo_bicicleta"', el navegador restringe la selección de forma visual e intuitiva a una sola opción.
+
+- Plan de alquiler (<select>):
+  * Justificación: Se empleó una lista desplegable (<select>) ya que permite agrupar múltiples opciones fijas de duración (1 hora, medio día, día completo) en un espacio reducido de la interfaz, optimizando el diseño vertical del formulario antes de que el usuario elija su tarifa.
+
+- Políticas de alquiler (<input type="checkbox">):
+  * Justificación: Se utilizó una casilla de verificación (checkbox) porque representa una acción explícita de asentimiento y aceptación de términos legales obligatorios previos al envío de los datos. El atributo 'required' asegura que no se pueda avanzar sin marcarla.

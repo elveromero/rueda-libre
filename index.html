@@ -1,99 +1,161 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rueda Libre ofrece servicios de alquiler de bicicletas y recorridos guiados por la ciudad de Medellín.">
-    <title>Inicio | Rueda Libre Medellín</title>
-    <!-- Google Fonts Preconnect y Enlaces -->
+    <meta name="description" content="Completa tu reserva de bicicletas o recorridos guiados en Rueda Libre Medellín.">
+    <title>Reservas y Alquiler | Rueda Libre Medellín</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <!-- Hoja de estilos externa -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <!-- Encabezado con marca y navegación principal -->
+    <!-- Encabezado y Navegación Principal -->
     <header>
-        <img src="img/logo.jpeg" alt="Logo oficial de Rueda Libre" width="160">
+        <a href="../index.html">
+            <img src="../img/logo.jpeg" alt="Logo oficial de Rueda Libre Medellín" width="160">
+        </a>
         <h1>Rueda Libre</h1>
+        <p>Sistema de Reservas en Línea</p>
+
         <nav>
-            <ul>
-                <li><a href="index.html" class="activo">Inicio</a></li>
-                <li><a href="paginas/tarifas.html">Tarifas y rutas</a></li>
-                <li><a href="paginas/reservas.html">Reservas</a></li>
+            <ul id="menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="/paginas/tarifas.html">Tarifas y rutas</a></li>
+                <li><a href="/paginas/reservas.html" class="activo">Reservas</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Contenido principal de la página -->
     <main>
-        <p>¡Te damos la bienvenida a Rueda Libre! Explora la ciudad sobre dos ruedas de forma segura y sostenible. Si deseas ubicarnos, ve a la sección <a href="#encuentranos">Encuéntranos</a> o realiza una <a href="paginas/reservas.html">Reservar ahora</a>.</p>
-
-        <p>
-            <img src="img/ciclists.jpeg" alt="Logo de Rueda Libre" width="700">
-        </p>
-
-        <!-- Bloque temático 1: ¿Quiénes somos? -->
+        <!-- Sección de introducción -->
         <section>
-            <h2>¿Quiénes somos?</h2>
-            <p>Somos un emprendimiento de Medellín enfocado en la movilidad sostenible y el turismo urbano activo. Queremos que cada rodada sea una experiencia inolvidable y <em>conectada con la cultura local</em>.</p>
-
-            <h3>Beneficios de nuestro servicio</h3>
-            <ul>
-                <li>Equipos modernos y rigurosamente revisados para garantizar total seguridad.</li>
-                <li>Flexibilidad en horarios y tarifas adaptadas a todos los bolsillos.</li>
-                <li>Acompañamiento de guías expertos locales en cada ruta.</li>
-            </ul>
+            <h2>Reserva tu bicicleta</h2>
+            <p>Evitemos errores y esperas. Completa el siguiente formulario oficial para asegurar tu equipo y tu cupo en nuestros recorridos guiados.</p>
         </section>
 
-        <!-- Bloque temático 2: Nuestros servicios (con artículos independientes) -->
+        <!-- Sección del Formulario de Reserva -->
         <section>
-            <h2>Nuestros servicios</h2>
+            <h2>Formulario de reserva</h2>
+            <form action="#" method="post">
+                
+                <!-- Grupo 1: Tus datos -->
+                <fieldset>
+                    <legend>Tus datos</legend>
+                    
+                    <p>
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </p>
 
-            <article>
-                <h3>Alquiler de bicicletas</h3>
-                <p>Disfruta de la libertad de rodar a tu propio ritmo por las ciclorrutas de Medellín. Cada alquiler <strong>incluye casco y candado de alta seguridad</strong> para que te muevas con total tranquilidad.</p>
+                    <p>
+                        <label for="documento">Número de documento:</label>
+                        <input type="text" id="documento" name="documento" required>
+                    </p>
+
+                    <p>
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" required>
+                    </p>
+
+                    <p>
+                        <label for="celular">Celular de contacto:</label>
+                        <input type="tel" id="celular" name="celular" required>
+                    </p>
+                </fieldset>
+
+                <!-- Grupo 2: Tu alquiler -->
+                <fieldset>
+                    <legend>Tu alquiler</legend>
+                    
+                    <p>
+                        <label for="fecha-alquiler">Fecha del alquiler:</label>
+                        <input type="date" id="fecha-alquiler" name="fecha_alquiler" required>
+                    </p>
+
+                    <p>Selecciona el tipo de bicicleta:</p>
+                    <p>
+                        <input type="radio" id="bike-urbana" name="tipo_bicicleta" value="urbana" checked>
+                        <label for="bike-urbana">Urbana</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="bike-montana" name="tipo_bicicleta" value="montana">
+                        <label for="bike-montana">Montaña</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="bike-electrica" name="tipo_bicicleta" value="electrica">
+                        <label for="bike-electrica">Eléctrica</label>
+                    </p>
+
+                    <p>
+                        <label for="plan-alquiler">Plan de alquiler:</label>
+                        <select id="plan-alquiler" name="plan_alquiler" required>
+                            <option value="" disabled selected>Selecciona un plan</option>
+                            <option value="1-hora">1 hora</option>
+                            <option value="medio-dia">Medio día (4 horas)</option>
+                            <option value="dia-completo">Día completo (8 horas)</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="cantidad-bicicletas">Cantidad de bicicletas:</label>
+                        <input type="number" id="cantidad-bicicletas" name="cantidad_bicicletas" min="1" max="6" value="1" required>
+                    </p>
+
+                    <p>
+                        <label for="recorrido-guiado">Recorrido guiado:</label>
+                        <select id="recorrido-guiado" name="recorrido_guiado">
+                            <option value="ninguno">Ninguno (Solo alquiler libre)</option>
+                            <option value="comuna-13">Tour Urbano Comuna 13</option>
+                            <option value="noc-centro">Ruta Nocturna Centro</option>
+                            <option value="parques-rio">Circuito Parques del Río</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="comentarios">Comentarios o requerimientos adicionales:</label><br>
+                        <textarea id="comentarios" name="comentarios" rows="4" cols="40" placeholder="Escribe aquí notas adicionales..."></textarea>
+                    </p>
+                </fieldset>
+
+                <!-- Grupo 3: Confirmación -->
+                <fieldset>
+                    <legend>Confirmación</legend>
+                    
+                    <p>
+                        <input type="checkbox" id="politicas" name="politicas" value="aceptadas" required>
+                        <label for="politicas">Acepto las políticas de alquiler, uso obligatorio de casco y candado.</label>
+                    </p>
+                </fieldset>
+
+                <!-- Botón de envío -->
                 <p>
-                    <img src="img/bike.jpeg" alt="Bicicleta urbana de Rueda Libre equipada con casco y candado" width="500">
+                    <button type="submit">Enviar Solicitud de Reserva</button>
                 </p>
-            </article>
 
-            <article>
-                <h3>Recorridos guiados</h3>
-                <p>Únete a nuestras experiencias grupales guiadas por expertos a través de los sitios más emblemáticos y murales urbanos de la ciudad.</p>
-                <p>
-                    <img src="img/ruta.jpeg" alt="Ciclistas disfrutando de un recorrido guiado junto al río en Medellín" width="500">
-                </p>
-                <p><a href="paginas/tarifas.html#recorridos-guiados">Ver tabla completa de recorridos guiados y precios</a></p>
-            </article>
+            </form>
         </section>
 
-        <!-- Bloque temático 3: ¿Cómo alquilar? -->
-        <section>
-            <h2>¿Cómo alquilar?</h2>
-            <p>Sigue estos sencillos pasos para comenzar tu aventura:</p>
-            <ol>
-                <li>Elige el tipo de bicicleta o el recorrido guiado de tu preferencia.</li>
-                <li>Comunícate con nosotros o acércate a nuestra base operativa.</li>
-                <li>Recibe tu equipo (<strong>incluye casco y candado</strong>).</li>
-                <li>¡Disfruta de Medellín y devuelve el equipo a tiempo!</li>
-            </ol>
-        </section>
+        <!-- Contenido complementario: Horario de atención -->
+        <aside>
+            <h3>Horario de atención y reservas</h3>
+            <dl>
+                <dt>Lunes a Viernes</dt>
+                <dd>08:00 AM – 06:00 PM</dd>
 
-        <!-- Bloque temático 4: Encuéntranos -->
-        <section id="encuentranos">
-            <h2>Encuéntranos</h2>
-            <p>¿Tienes dudas o quieres visitarnos?</p>
-            <ul>
-                <li>Correo de contacto: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></li>
-                <li>Ubicación: <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a></li>
-            </ul>
-        </section>
+                <dt>Sábados</dt>
+                <dd>08:00 AM – 04:00 PM</dd>
+
+                <dt>Domingos y Festivos</dt>
+                <dd>09:00 AM – 02:00 PM</dd>
+            </dl>
+        </aside>
     </main>
 
-    <!-- Pie de página -->
     <footer>
         <p>Rueda Libre | Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a> | &copy; 2026</p>
     </footer>
