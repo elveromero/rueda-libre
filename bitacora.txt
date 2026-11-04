@@ -85,3 +85,20 @@
 - Selector de la clase: .activo (Especificidad Clase: 0, 1, 0)
 - Causa del problema: En la cascada de CSS, el selector #menu a posee mayor especificidad (cuenta con un ID = 100) en comparación con el selector de clase .activo (cuenta con una clase = 10). Debido a esto, las reglas de color definidas en #menu a sobrescribían y anulaban el color de la clase .activo, tachándola en DevTools.
 - Solución aplicada: Se incrementó la especificidad del selector de clase combinándolo con el elemento (ej. a.activo o #menu a.activo con especificidad 0, 1, 1 o 0, 2, 1), logrando que coexista con el menú sin usar !important ni estilos en línea.
+
+14. ESQUEMA DE REGIONES Y SEMÁNTICA (v0.2):
+
+- Esquema visual de regiones por página:
+  ┌─────────────────────────────────────────────────────────┐
+  │ <header> : Logo corporativo + H1 + <nav> (Menú principal)│
+  ├─────────────────────────────────────────────────────────┤
+  │ <main>   : Contenido principal único de la página       │
+  │            - index.html: <section> y <article> (Servicios)│
+  │            - tarifas.html: <section> (Tablas) + <aside> │
+  │            - reservas.html: <section> + <aside> (Horario)│
+  ├─────────────────────────────────────────────────────────┤
+  │ <footer> : Información institucional, correo y copyright  │
+  └─────────────────────────────────────────────────────────┘
+
+- Justificación sobre el uso de <div> y <span>:
+  * Durante esta reestructuración se eliminaron todos los contenedores genéricos (<div> y <span>) que carecían de significado semántico, reemplazándolos en su totalidad por etiquetas nativas (<header>, <nav>, <main>, <section>, <article>, <aside>, <footer>). No fue necesario conservar ningún <div> ya que la jerarquía semántica cubre de forma precisa y robusta toda la arquitectura del sitio.
